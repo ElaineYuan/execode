@@ -11,7 +11,7 @@ public class Main {
 		String[]sarr=str.split("\\+|-|\\*|/");//number
 		String[]sarr1=str.split("\\d+");//char
 		
-		int []num=new int[sarr.length];//°ÑStringÊı×é×ª»¯³ÉintĞÍÊı×é
+		int []num=new int[sarr.length];//æŠŠStringæ•°ç»„è½¬åŒ–æˆintå‹æ•°ç»„
 		int []num1=num;
 		String[]ch=sarr1;
 		
