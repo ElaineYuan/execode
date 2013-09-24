@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.lang.String;
+import java.math.*;
 
 public class Main {
 	public static void main(String[]args)
@@ -10,64 +11,73 @@ public class Main {
 		String[]sarr=str.split("\\+|-|\\*|/");//numbersarr[0]
 		String[]sarr1=str.split("\\d+");//sarr1[0]里面为空的，从sarr[1]开始赋值
 		
-		int []num=new int[sarr.length];//把String数组转化成int型数组
+		int []num1=new int[sarr.length];//把String数组转化成int型数组
 		int index=sarr1.length;
 		
 		for(int i=0;i<sarr.length;i++){
-			num[i]=Integer.parseInt(sarr[i]);		
+			num1[i]=Integer.parseInt(sarr[i]);		
+		}
+		double[]num=new double[sarr.length];
+		for(int i=0;i<sarr1.length;i++){
+			num[i]=num1[i];
 		}
 		
-		for(int i=1;i<index;){			
-			if(sarr1[i].equals("*")||sarr1[i].equals("/")){				
-				if(sarr1[i].equals("*")){
-					num[i-1]=num[i-1]*num[i];
-					for(int j=i;j<index-1;j++){
-						num[j]=num[j+1];
-						sarr1[j]=sarr1[j+1];
-					}
-					index=index-1;
-				}
-				
-				if(sarr1[i].equals("/")){
-					num[i-1]=num[i-1]/num[i];
-					for(int j=i;j<index-1;j++){
-						num[j]=num[j+1];
-						sarr1[j]=sarr1[j+1];
-					}
-					index=index-1;
-					
-				}
-				
-			}else{
-				i++;
-				}
-		}
-		for(int i=1;i<index;){
-			if(sarr1[i].equals("+")||sarr1[i].equals("-")){
-				
-				if(sarr1[i].equals("+")){
-					num[i-1]=num[i-1]+num[i];
-					for(int j=i;j<index-1;j++){
-						num[j]=num[j+1];
-						sarr1[j]=sarr1[j+1];
-					}	
-					index=index-1;
-				}
-				
-				if(sarr1[i].equals("-")){
-					num[i-1]=num[i-1]-num[i];
-					for(int j=i;j<index-1;j++){
-						num[j]=num[j+1];
-						sarr1[j]=sarr1[j+1];
-					}
-					index=index-1;
-					
-				}
-				
-			}			
-		}
 		
-		System.out.print(num[0]);		
+			for(int i=1;i<index;){			
+				if(sarr1[i].equals("*")||sarr1[i].equals("/")){				
+					if(sarr1[i].equals("*")){
+						num[i-1]=num[i-1]*num[i];
+						for(int j=i;j<index-1;j++){
+							num[j]=num[j+1];
+							sarr1[j]=sarr1[j+1];
+						}
+						index=index-1;
+					}
+					
+					if(sarr1[i].equals("/")){
+						num[i-1]=num[i-1]/num[i];
+						for(int j=i;j<index-1;j++){
+							num[j]=num[j+1];
+							sarr1[j]=sarr1[j+1];
+						}
+						index=index-1;
+						
+					}
+					
+				}else{
+					i++;
+					}
+			}
+			for(int i=1;i<index;){
+				if(sarr1[i].equals("+")||sarr1[i].equals("-")){
+					
+					if(sarr1[i].equals("+")){
+						num[i-1]=num[i-1]+num[i];
+						for(int j=i;j<index-1;j++){
+							num[j]=num[j+1];
+							sarr1[j]=sarr1[j+1];
+						}	
+						index=index-1;
+					}
+					
+					if(sarr1[i].equals("-")){
+						num[i-1]=num[i-1]-num[i];
+						for(int j=i;j<index-1;j++){
+							num[j]=num[j+1];
+							sarr1[j]=sarr1[j+1];
+						}
+						index=index-1;
+						
+					}
+					
+				}			
+			}
+			System.out.print(num[0]);		
+			
+		
+		
+		
+		
 
 	} 
 
