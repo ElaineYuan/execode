@@ -14,29 +14,31 @@ public class StringZip {
 	}
 
 	static String Stringzip(String s) {
-		String output = null;
-		s = s + "*";
-		int length = s.length();
-		StringBuffer sb = new StringBuffer();
-		int count = 1;
-		int temp = 0;
-
-		char old = s.charAt(0);
-		for (int i = 1; i < length; i++) {
-			if (s.charAt(i) == old)
-				count++;
-			else {
-				if (count > 1)
-					sb.append(count + String.valueOf(s.charAt(temp)));
-				else {
-					sb.append(String.valueOf(s.charAt(temp)));
-				}
-				count = 1;
-				temp = i;
-				old = s.charAt(i);
-			}
-		}
-		output = sb.toString();
-		return output;
+	    String _str = "";
+	     
+	    int i = 0;   //游标位置
+	    char c;      //游标字符
+	    while(i<s.length()) {          
+	        int n = 1;   //相邻相同字符的个数
+	        c = s.charAt(i);
+	        for(int j=i+1; j<s.length(); j++) {
+	            char _c = s.charAt(j);
+	            if(c==_c) {
+	                n++;
+	            } else {
+	                break;
+	            }
+	        }
+	         
+	        if(n==1) {
+	            _str += c;
+	        } else if(n>1){
+	            _str += String.valueOf(n) + c; 
+	        }
+	 
+	        i += n;  //游标位置
+	    }
+	     
+	    return _str; 
 	}
 }
